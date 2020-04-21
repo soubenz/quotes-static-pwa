@@ -28,6 +28,16 @@ module.exports = {
         theme_color: "#FFFFFF",
         lang: "en",
       }
-    }
+    },
+    {
+      use: 'gridsome-source-graphql',
+      options: {
+        url: 'https://quotes-api.benzaoui.dev/graphql',
+        fieldName: 'shows',
+        typeName: 'API',
+
+      },
+    },
+
   ]
 }
