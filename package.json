@@ -7,7 +7,9 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "gridsome-source-graphql": "^1.0.2",
+    "vuetify": "^2.2.22"
   },
   "devDependencies": {
     "gridsome-plugin-manifest": "^0.3.4",
