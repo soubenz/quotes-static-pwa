@@ -9,7 +9,7 @@ module.exports = {
   plugins: [{
       use: 'gridsome-plugin-service-worker',
       options: {
-        networkFirst: {
+        "Cache-first": {
           routes: [
             "/",
             /\.(js|css|png)$/, // means "every JS, CSS, and PNG images"
@@ -24,11 +24,20 @@ module.exports = {
         background_color: "#000000",
         icon_path: "./src/assets/logo.png",
         name: "TV Series and Movies Quotes",
-        short_name: "App",
+        short_name: "TV Series & Movies Quotes",
         theme_color: "#FFFFFF",
         lang: "en",
       }
     },
+    // {
+    //   use: '@noxify/gridsome-plugin-remote-image',
+    //   options: {
+    //     'typeName': 'movie',
+    //     'sourceField': 'poster',
+    //     'targetField': 'imageDownloaded',
+    //     'targetPath': './src/assets/remoteImages'
+    //   }
+    // },
     // {
     //   use: 'gridsome-source-graphql',
     //   options: {
