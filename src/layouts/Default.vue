@@ -1,12 +1,13 @@
 <template>
   <v-app id="keep">
     <v-app-bar app clipped-left color="cyan darken-3" dark>
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
-      <span class="title ml-3 mr-5">{{ $static.metadata.siteName }}</span>
+      <!-- <v-btn @click="drawer = !drawer">
+        <v-icon>mdi-exit-to-app</v-icon>
+      </v-btn>-->
+      <v-app-bar-nav-icon @click="drawer = !drawer" aria-label="Drawer" />
+      <span class="title ml-3 mr-5" dark>{{ $static.metadata.siteName }}</span>
       <v-spacer />
       <span class="headline font-weight-bold">{{pageTitle}}</span>
-
-      <!-- <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="search" /> -->
 
       <v-spacer />
     </v-app-bar>

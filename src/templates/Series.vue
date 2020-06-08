@@ -52,25 +52,30 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-data-iterator :items="$page.series.quotes.edges" :items-per-page="5">
-            <template v-slot:header>
-              <v-toolbar class="mb-2" color="#FE4A49" dark>
-                <v-toolbar-title>Quotes</v-toolbar-title>
-              </v-toolbar>
-            </template>
-            <template v-slot:default="{items}">
-              <v-row v-for="item in items" :key="item.node.id" justify="center">
-                <v-col cols="12" sm="8">
-                  <v-card raised color="cyan lighten-1" dark>
-                    <v-card-text class="display-1 font-italic thin">{{ item.node.text }}</v-card-text>
-                    <v-card-actions
-                      class="font-weight-bold d-flow justify-end"
-                    >{{ item.node.character.name }}</v-card-actions>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </template>
-          </v-data-iterator>
+          <v-col>
+            <v-data-iterator :items="$page.series.quotes.edges" :items-per-page="5">
+              <template v-slot:header>
+                <v-toolbar class="mb-2" color="#FE4A49" dark>
+                  <v-toolbar-title>Quotes</v-toolbar-title>
+                </v-toolbar>
+              </template>
+              <template v-slot:default="{items}">
+                <v-row v-for="item in items" :key="item.node.id" justify="center">
+                  <v-col cols="12" sm="8">
+                    <v-card raised color="cyan lighten-1" dark>
+                      <v-card-text
+                        dark
+                        class="display-1 font-italic white--text"
+                      >{{ item.node.text }}</v-card-text>
+                      <v-card-actions
+                        class="font-weight-bold d-flow justify-end"
+                      >{{ item.node.character.name }}</v-card-actions>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </template>
+            </v-data-iterator>
+          </v-col>
         </v-row>
       </v-card-text>
     </v-card>
