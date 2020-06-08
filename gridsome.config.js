@@ -29,15 +29,35 @@ module.exports = {
         lang: "en",
       }
     },
-    {
-      use: 'gridsome-source-graphql',
-      options: {
-        url: 'https://quotes-api.benzaoui.dev/graphql',
-        fieldName: 'shows',
-        typeName: 'API',
+    // {
+    //   use: 'gridsome-source-graphql',
+    //   options: {
+    //     url: 'https://quotes-api.benzaoui.dev/graphql',
+    //     fieldName: 'shows',
+    //     typeName: 'API',
 
+    //   },
+    // },
+
+  ],
+  templates: {
+
+    Series: [{
+      // path: `/shows/${title.toLowerCase().replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '-')}`,
+      path: (node) => {
+
+        return `/series/${node.title.toLowerCase().replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '-').replace(/:/g, '')}`
       },
-    },
+      component: '@/templates/Series.vue'
+    }],
+    Movies: [{
+      // path: `/shows/${title.toLowerCase().replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '-')}`,
+      path: (node) => {
 
-  ]
+        return `/movies/${node.title.toLowerCase().replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '-').replace(/:/g, '')}`
+      },
+      component: '@/templates/Movies.vue'
+    }]
+
+  }
 }
