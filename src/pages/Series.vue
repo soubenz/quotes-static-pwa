@@ -46,7 +46,9 @@ query allSeries ($page: Int) {
 import { Pager } from "gridsome";
 export default {
   metaInfo: {
-    title: "TV Series Quotes"
+    title: "TV Series Quotes",
+
+    meta: [{ name: "description", content: "A collection of TV Series Quotes" }]
   },
   components: { Pager },
   methods: {
