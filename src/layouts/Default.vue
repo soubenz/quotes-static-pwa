@@ -1,18 +1,38 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
-    </header>
-    <slot/>
-  </div>
-</template>
+  <v-app id="keep">
+    <v-app-bar app clipped-left color="cyan darken-3" dark>
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
+      <span class="title ml-3 mr-5">{{ $static.metadata.siteName }}</span>
+      <v-spacer />
+      <span class="headline font-weight-bold">{{pageTitle}}</span>
 
+      <!-- <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="search" /> -->
+
+      <v-spacer />
+    </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer" app clipped color="cyan darken-3">
+      <v-list dense dark>
+        <template v-for="(item, i) in items">
+          <v-list-item dark :key="i" link :to="item.to" :href="item.href">
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title dark>{{ item.text }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-content>
+      <v-container>
+        <slot />
+      </v-container>
+    </v-content>
+  </v-app>
+</template>
 <static-query>
 query {
   metadata {
@@ -20,31 +40,54 @@ query {
   }
 }
 </static-query>
+<script>
+export default {
+  props: {
+    pageTitle: String
+  },
+  data: () => ({
+    drawer: null,
+    items: [
+      { icon: "mdi-home-outline", text: "Home", to: "/" },
+      // { icon: "mdi-shuffle", text: "Random Show", to: "/projects/" },
+      { icon: "mdi-filmstrip", text: "Movies Quotes", to: "/movies/" },
+      // { divider: true },
+      // { heading: "Labels" },
+      {
+        icon: "mdi-television-classic",
+        text: "TV Series Quotes",
+        to: "/series/"
+      },
+      // { icon: "mdi-code-tags", text: "Career Path", to: "/career/" },
+      // { icon: "chat_bubble", text: "Contact", to: "" },
+      {
+        icon: "mdi-linkedin",
+        text: "My Linkedin",
+        href: "https://www.linkedin.com/in/soufiane-benzaoui/"
+      },
+      {
+        icon: "mdi-github",
+        text: "Github",
+        href: "https://github.com/soubenz/quotes-static-pwa"
+      }
+      // { icon: "email", text: "Email me", to: "/contact/" }
+
+      // { divider: true },
+      // { icon: "archive", text: "Archive" },
+      // { icon: "delete", text: "Trash" },
+      // { divider: true },
+      // { icon: "settings", text: "Settings" },
+      // { icon: "chat_bubble", text: "Trash" },
+      // { icon: "help", text: "Help" },
+      // { icon: "phonelink", text: "App downloads" },
+      // { icon: "keyboard", text: "Keyboard shortcuts" }
+    ]
+  })
+};
+</script>
 
 <style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
+#keep .v-navigation-drawer__border {
+  display: none;
 }
 </style>
