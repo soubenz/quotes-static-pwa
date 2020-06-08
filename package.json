@@ -9,6 +9,8 @@
   "dependencies": {
     "gridsome": "^0.7.0",
     "gridsome-source-graphql": "^1.0.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
     "vuetify": "^2.2.22"
   },
   "devDependencies": {
