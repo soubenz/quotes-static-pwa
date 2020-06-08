@@ -2,8 +2,8 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+import Vuetify from 'vuetify/lib';
+
 export default function (Vue, {
   appOptions,
   head
@@ -12,12 +12,6 @@ export default function (Vue, {
     rel: 'stylesheet',
     href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
   })
-
-  head.link.push({
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Material+Icons',
-  })
-
 
   const opts = {
     icons: {

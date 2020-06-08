@@ -5,7 +5,13 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 const axios = require('axios')
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 module.exports = function (api) {
+  api.chainWebpack((config, {
+    isServer
+  }) => {
+    config.plugin('vuetify-loader').use(VuetifyLoaderPlugin);
+  })
   api.loadSource(async actions => {
       const {
         data
@@ -14,7 +20,7 @@ module.exports = function (api) {
         method: 'post',
         data: {
           query: `{
-      shows(first: 50) {
+      shows {
         edges {
           node {
             id
