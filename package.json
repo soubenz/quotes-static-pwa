@@ -1,0 +1,24 @@
+{
+  "name": "quotes",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@noxify/gridsome-plugin-remote-image": "1.0.0",
+    "gridsome": "^0.7.0",
+    "gridsome-source-graphql": "^1.0.2",
+    "sass": "^1.26.8",
+    "sass-loader": "7.3.1",
+    "vuetify": "^2.2.22"
+  },
+  "devDependencies": {
+    "deepmerge": "^4.2.2",
+    "fibers": "^5.0.0",
+    "gridsome-plugin-manifest": "^0.3.4",
+    "gridsome-plugin-service-worker": "^0.1.4",
+    "vuetify-loader": "^1.4.4"
+  }
+}
