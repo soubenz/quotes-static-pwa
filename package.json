@@ -13,7 +13,7 @@
     "gridsome-source-graphql": "^1.0.2",
     "sass": "^1.26.8",
     "sass-loader": "7.3.1",
-    "vuetify": "^2.2.22"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "deepmerge": "^4.2.2",
